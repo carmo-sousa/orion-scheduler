@@ -1,3 +1,4 @@
+import { UUID } from 'crypto';
 import {
   Entity,
   Column,
@@ -9,9 +10,9 @@ import {
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
-  @Column({ length: '50' })
+  @Column({ length: '50', unique: true })
   username: string;
 
   @Column({ length: '64' })
